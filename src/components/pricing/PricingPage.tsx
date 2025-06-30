@@ -14,11 +14,13 @@ import {
   ChevronUp,
   CreditCard,
   Gift,
-  TrendingUp
+  TrendingUp,
+  ArrowLeft
 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import PaymentModal from './PaymentModal';
 import SubscriptionManager from './SubscriptionManager';
+import { Link } from 'react-router-dom';
 
 interface PricingTier {
   id: string;
@@ -192,6 +194,17 @@ const PricingPage: React.FC = () => {
             )}
           </div>
 
+          {/* Back Button */}
+          <div className="px-6 mb-4">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-[-4px] group"
+            >
+              <ArrowLeft className="w-5 h-5 group-hover:animate-pulse" />
+              <span>Back to Home</span>
+            </Link>
+          </div>
+
           {/* Hero Section */}
           <section className="text-center py-16 px-4">
             <div className="max-w-4xl mx-auto">
@@ -265,7 +278,6 @@ const PricingPage: React.FC = () => {
                     }`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
-                    {/* Popular Badge */}
                     {tier.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
                         <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-medium flex items-center gap-2">
