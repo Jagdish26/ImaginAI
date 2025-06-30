@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { Eye, EyeOff, Mail, Lock, User, Github, Chrome, Check, AlertCircle, Loader2 } from 'lucide-react';
+=======
+import { Eye, EyeOff, Mail, Lock, User, Github, Chrome, Check, AlertCircle, Loader2, ArrowLeft } from 'lucide-react';
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
 import { supabase, signUp, signIn } from '../../lib/supabase';
 
 interface AuthCardProps {
   onSuccess?: () => void;
+<<<<<<< HEAD
+=======
+  onBack?: () => void;
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
 }
 
 interface FormData {
@@ -22,7 +30,11 @@ interface FormErrors {
   general?: string;
 }
 
+<<<<<<< HEAD
 const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
+=======
+const AuthCard: React.FC<AuthCardProps> = ({ onSuccess, onBack }) => {
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -213,10 +225,36 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
     setShowForgotPassword(false);
   };
 
+<<<<<<< HEAD
+=======
+  const handleBack = () => {
+    if (showForgotPassword) {
+      setShowForgotPassword(false);
+      setResetSent(false);
+      setResetEmail('');
+      setErrors({});
+    } else {
+      onBack?.();
+    }
+  };
+
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
   if (showForgotPassword) {
     return (
       <div className={`w-full max-w-md mx-auto transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+<<<<<<< HEAD
+=======
+          {/* Back Button */}
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-6 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+            Back to Sign In
+          </button>
+
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">Reset Password</h2>
             <p className="text-gray-200">Enter your email to receive a reset link</p>
@@ -230,7 +268,11 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
               <h3 className="text-xl font-semibold text-white mb-2">Check Your Email</h3>
               <p className="text-gray-200 mb-6">We've sent a password reset link to {resetEmail}</p>
               <button
+<<<<<<< HEAD
                 onClick={() => setShowForgotPassword(false)}
+=======
+                onClick={handleBack}
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 Back to Login
@@ -271,6 +313,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
                   'Send Reset Link'
                 )}
               </button>
+<<<<<<< HEAD
 
               <div className="text-center">
                 <button
@@ -281,6 +324,8 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
                   Back to Login
                 </button>
               </div>
+=======
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
             </form>
           )}
         </div>
@@ -293,6 +338,20 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
   return (
     <div className={`w-full max-w-md mx-auto transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
       <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+<<<<<<< HEAD
+=======
+        {/* Back Button */}
+        {onBack && (
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-6 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+            Back to Home
+          </button>
+        )}
+
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-2">
             {isLogin ? 'Welcome Back' : 'Create Account'}

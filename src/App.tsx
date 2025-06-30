@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+=======
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
 import { Shield, Zap, Sparkles, Upload, Check, Star, ArrowRight, Heart, Users, Clock } from 'lucide-react';
 import AuthGuard from './components/auth/AuthGuard';
 import AuthPage from './components/auth/AuthPage';
@@ -10,6 +14,7 @@ import PrivacyPage from './components/privacy/PrivacyPage';
 import CookieConsent from './components/privacy/CookieConsent';
 import { useAuth } from './hooks/useAuth';
 
+<<<<<<< HEAD
 // Navbar Component
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -156,6 +161,8 @@ const Navbar: React.FC = () => {
   );
 };
 
+=======
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
 // Landing Page Component
 const LandingPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -166,9 +173,12 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 font-inter overflow-x-hidden">
+<<<<<<< HEAD
       {/* Navbar */}
       <Navbar />
       
+=======
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-pink-600/20 animate-pulse"></div>
@@ -178,7 +188,11 @@ const LandingPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
+<<<<<<< HEAD
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+=======
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
         <div className={`max-w-7xl mx-auto text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
@@ -235,7 +249,11 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Features Section */}
+<<<<<<< HEAD
       <section id="features" className="relative py-20 px-4 sm:px-6 lg:px-8">
+=======
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
@@ -285,7 +303,11 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Pricing Section */}
+<<<<<<< HEAD
       <section id="pricing" className="relative py-20 px-4 sm:px-6 lg:px-8">
+=======
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
@@ -334,12 +356,19 @@ const LandingPage: React.FC = () => {
                 popular: true
               }
             ].map((plan, index) => (
+<<<<<<< HEAD
               <div key={index} className={`relative group ${plan.popular ? 'md:scale-105 md:-translate-y-4' : ''}`}>
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-medium">
                       Most Popular
                     </div>
+=======
+              <div key={index} className={`relative group ${plan.popular ? 'md:scale-105' : ''}`}>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-medium">
+                    Most Popular
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
                   </div>
                 )}
                 <div className={`bg-white/5 backdrop-blur-sm border ${plan.popular ? 'border-purple-500/50' : 'border-white/10'} rounded-3xl p-8 h-full transition-all duration-300 hover:bg-white/10 hover:border-white/20`}>
@@ -349,7 +378,11 @@ const LandingPage: React.FC = () => {
                       <span className="text-4xl font-bold text-white">{plan.price}</span>
                       <span className="text-gray-300 ml-2">/{plan.period}</span>
                     </div>
+<<<<<<< HEAD
                     <p className="text-gray-300">{plan.description}</p>
+=======
+                    <p className="text-gray-200">{plan.description}</p>
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
                   </div>
                   
                   <ul className="space-y-4 mb-8">
@@ -379,7 +412,11 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Gallery Section */}
+<<<<<<< HEAD
       <section id="gallery" className="relative py-20 px-4 sm:px-6 lg:px-8">
+=======
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+>>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
