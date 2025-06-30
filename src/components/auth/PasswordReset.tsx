@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Lock, AlertCircle, Check, Loader2, Sparkles } from 'lucide-react';
+import { useSearchParams, useNavigate, Link } from 'react-router-dom';
+import { Eye, EyeOff, Lock, AlertCircle, Check, Loader2, Sparkles, ArrowLeft } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 const PasswordReset: React.FC = () => {
@@ -129,8 +129,16 @@ const PasswordReset: React.FC = () => {
         <div className="absolute top-3/4 left-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-float-slow"></div>
       </div>
 
-      {/* Header */}
-      <div className="relative z-10 flex items-center justify-center pt-8 pb-4">
+      {/* Header with Back Button */}
+      <div className="relative z-10 flex items-center justify-between pt-8 pb-4 px-6">
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-[-4px] group"
+        >
+          <ArrowLeft className="w-5 h-5 group-hover:animate-pulse" />
+          <span>Back to Home</span>
+        </Link>
+        
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center">
             <Sparkles className="w-7 h-7 text-white" />
