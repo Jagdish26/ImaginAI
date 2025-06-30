@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Eye, EyeOff, Mail, Lock, User, Github, Chrome, Check, AlertCircle, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Github, Chrome, Check, AlertCircle, Loader2, ArrowLeft } from 'lucide-react';
 import { supabase, signUp, signIn } from '../../lib/supabase';
 
 interface AuthCardProps {
   onSuccess?: () => void;
+  onBack?: () => void;
 }
 
 interface FormData {
@@ -22,7 +23,7 @@ interface FormErrors {
   general?: string;
 }
 
-const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
+const AuthCard: React.FC<AuthCardProps> = ({ onSuccess, onBack }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -213,10 +214,30 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
     setShowForgotPassword(false);
   };
 
+  const handleBack = () => {
+    if (showForgotPassword) {
+      setShowForgotPassword(false);
+      setResetSent(false);
+      setResetEmail('');
+      setErrors({});
+    } else {
+      onBack?.();
+    }
+  };
+
   if (showForgotPassword) {
     return (
       <div className={`w-full max-w-md mx-auto transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+          {/* Back Button */}
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-6 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+            Back to Sign In
+          </button>
+
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">Reset Password</h2>
             <p className="text-gray-200">Enter your email to receive a reset link</p>
@@ -230,7 +251,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
               <h3 className="text-xl font-semibold text-white mb-2">Check Your Email</h3>
               <p className="text-gray-200 mb-6">We've sent a password reset link to {resetEmail}</p>
               <button
-                onClick={() => setShowForgotPassword(false)}
+                onClick={handleBack}
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
                 Back to Login
@@ -271,16 +292,6 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
                   'Send Reset Link'
                 )}
               </button>
-
-              <div className="text-center">
-                <button
-                  type="button"
-                  onClick={() => setShowForgotPassword(false)}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Back to Login
-                </button>
-              </div>
             </form>
           )}
         </div>
@@ -293,6 +304,17 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
   return (
     <div className={`w-full max-w-md mx-auto transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
       <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+        {/* Back Button */}
+        {onBack && (
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors mb-6 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+            Back to Home
+          </button>
+        )}
+
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-2">
             {isLogin ? 'Welcome Back' : 'Create Account'}
