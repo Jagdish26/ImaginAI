@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import AuthCard from './AuthCard';
 
 interface AuthPageProps {
@@ -7,6 +8,20 @@ interface AuthPageProps {
 }
 
 const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const handleAuthSuccess = () => {
+    if (onSuccess) {
+      onSuccess();
+    } else {
+      navigate('/dashboard');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 font-inter overflow-hidden">
       {/* Animated Background */}
@@ -32,7 +47,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
 
       {/* Auth Card */}
       <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-120px)] px-4 sm:px-6 lg:px-8">
-        <AuthCard onSuccess={onSuccess} />
+        <AuthCard onSuccess={handleAuthSuccess} onBack={handleBack} />
       </div>
 
       {/* Footer */}
