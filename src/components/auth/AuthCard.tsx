@@ -301,8 +301,8 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
               </div>
 
               {errors.general && (
-                <div className="flex items-center gap-2 text-red-400 text-sm animate-shake">
-                  <AlertCircle className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-red-400 text-sm animate-shake bg-red-500/10 border border-red-500/20 p-3 rounded-xl">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{errors.general}</span>
                 </div>
               )}
