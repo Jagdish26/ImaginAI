@@ -426,6 +426,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
             </button>
@@ -469,6 +470,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+                aria-label={showConfirmPassword ? "Hide confirmed password" : "Show confirmed password"}
               >
                 {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -503,8 +505,8 @@ const AuthCard: React.FC<AuthCardProps> = ({ onSuccess }) => {
           )}
 
           {errors.general && (
-            <div className="flex items-center gap-2 text-red-400 text-sm animate-shake">
-              <AlertCircle className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-red-400 text-sm animate-shake bg-red-500/10 border border-red-500/20 p-3 rounded-xl">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
               <span>{errors.general}</span>
             </div>
           )}
