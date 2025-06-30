@@ -1,10 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Sparkles } from 'lucide-react';
-=======
-import { Sparkles, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
->>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
 import AuthCard from './AuthCard';
 
 interface AuthPageProps {
@@ -12,23 +7,6 @@ interface AuthPageProps {
 }
 
 const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
-<<<<<<< HEAD
-=======
-  const navigate = useNavigate();
-
-  const handleBack = () => {
-    navigate('/');
-  };
-
-  const handleAuthSuccess = () => {
-    if (onSuccess) {
-      onSuccess();
-    } else {
-      navigate('/dashboard');
-    }
-  };
-
->>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 font-inter overflow-hidden">
       {/* Animated Background */}
@@ -54,11 +32,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onSuccess }) => {
 
       {/* Auth Card */}
       <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-120px)] px-4 sm:px-6 lg:px-8">
-<<<<<<< HEAD
         <AuthCard onSuccess={onSuccess} />
-=======
-        <AuthCard onSuccess={handleAuthSuccess} onBack={handleBack} />
->>>>>>> 95509cf71d68041fbfd2d0029b8c4e0781b1e89f
       </div>
 
       {/* Footer */}
